@@ -1,5 +1,5 @@
 #!/bin/bash
-# Activates the virtual environment and runs MkDocs using Python.
+# Activates the virtual environment and runs MkDocs using Python
 # 
 # Why this script exists:
 #   On some systems (especially with multiple Python versions or shims like pyenv/jenv/rbenv),
@@ -12,13 +12,17 @@
 
 DEFAULT_VENV="venv"
 VENV_NAME="${1:-$DEFAULT_VENV}"
-VENV_DIR="$(dirname "$0")/$VENV_NAME"
+PROJECT_ROOT="$(dirname "$0")/.."
+VENV_DIR="$PROJECT_ROOT/$VENV_NAME"
 
 if [ ! -d "$VENV_DIR" ]; then
     echo "Virtual environment not found at $VENV_DIR"
     exit 1
 fi
 
+# shellcheck source=/dev/null
 source "$VENV_DIR/bin/activate"
+
+cd "$PROJECT_ROOT" || exit
 python -m mkdocs serve
 
