@@ -57,10 +57,13 @@ Stores authentication credentials for registered users.
 - **ID**
 - **user ID** — references the _User_ the auth record belongs to
 - **password hash**
+- **refresh token**
 - **created at**
 - **updated at**
 
 ## Relationships
+
+- **User ↔ Auth** - one-to-one
 
 - **User ↔ Event** — many-to-many  
   Implemented through a join table (e.g., _EventAccess_) that stores each user’s access level for an event.
