@@ -44,7 +44,6 @@ Represents an image uploaded to an event.
 
 - **ID**
 - **image URL**
-- **description (?)**
 - **added by** — references the _User_ who uploaded the photo
 - **event ID** — references the _Event_ the photo belongs to
 - **created at**
